@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-// import { Point } from "typeorm";
 import dbConnect from "../config/attendance";
 import { PresenceModel } from "../entity/presence.entity";
 import jwt, { JwtPayload } from "jsonwebtoken";
@@ -86,6 +85,7 @@ export const GetPrecence = async (req: Request, res: Response) => {
                         .setParameter('userid', userid)
                         .andWhere('dates = :wheredate')
                         .setParameter('wheredate', currendate)
+                        .orderBy('created_at', 'DESC')
                         .getRawMany();
     res.status(200).json({
         data: dataprecence

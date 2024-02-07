@@ -16,11 +16,4 @@ export class LeaveTypeModel extends BaseEntity{
         default: ['1']
     })
     status: TypeStatus
-
-    @Column({name: 'created_at'})
-    created_at!: Date
-
-    @Column({name: 'updated_at'})
-    updated_at!: Date
-    
 }
