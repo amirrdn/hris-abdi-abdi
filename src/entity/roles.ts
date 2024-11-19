@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn, BaseEntity,OneToMany, JoinColum
 import { RoleHasPemissions } from "./roleHasPermissions";
 import { User } from "./user.entity";
 
-@Entity('dcms.roles')
+@Entity('dcms2.roles')
 export class Roles extends BaseEntity{
     @PrimaryGeneratedColumn()
     id!: number;

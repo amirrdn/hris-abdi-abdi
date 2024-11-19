@@ -3,7 +3,7 @@ import { Permissions } from "./permissionsEntity";
 import { RoleHasPemissions } from "./roleHasPermissions";
 export type Enabled = "yes" | "no";
 
-@Entity('dcms.module')
+@Entity('dcms2.module')
 export class Modules extends BaseEntity{
     @PrimaryGeneratedColumn()
     id!: number

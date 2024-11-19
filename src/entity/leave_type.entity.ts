@@ -15,5 +15,5 @@ export class LeaveTypeModel extends BaseEntity{
         enum: ['0', '1'],
         default: ['1']
     })
-    status: TypeStatus
+    status: TypeStatus = '1';
 }

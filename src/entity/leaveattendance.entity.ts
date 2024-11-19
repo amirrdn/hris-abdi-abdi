@@ -1,10 +1,14 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { LeaveTypeModel } from "./leave_type.entity";
+import { ApprovalModel } from "./approval.entity";
 
 @Entity('leave_attendance')
 export class LeaveAttendanceModel extends BaseEntity{
     @PrimaryGeneratedColumn()
     id!: number
+
+    @OneToMany(() => ApprovalModel, (approval) => approval.leaveAttendance)
+    approvals!: ApprovalModel[];
 
     @Column({ name: 'start_date'})
     start_date!: Date
@@ -17,6 +21,9 @@ export class LeaveAttendanceModel extends BaseEntity{
 
     @Column()
     files!: string
+
+    @Column()
+    assigned_to!: number;
 
     @Column({ name: 'user_id'})
     user_id!: number

@@ -6,14 +6,19 @@ export class PresenceModel extends BaseEntity{
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column()
+    @Column({ type: 'date' })
     dates!: Date
 
     @Column()
     times!: string
     
-    @Column("geometry")
-    coordinate!: string
+    @Column('geometry', {
+        spatialFeatureType: 'Point',
+        srid: 4326,
+      })
+      coordinate!: string;
+    // @Column("geometry")
+    // coordinate!: Point
 
     @Column({ name: 'type_absen'})
     type_absen!: string

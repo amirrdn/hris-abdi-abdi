@@ -4,7 +4,7 @@ import { Branchs } from "./brachEntity";
 
 export type Enabled = "yes" | "no";
 
-@Entity('dcms.users')
+@Entity('dcms2.users')
 export class User extends BaseEntity{
     @PrimaryGeneratedColumn()
     id!: number;

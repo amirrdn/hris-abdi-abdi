@@ -5,7 +5,7 @@ import moment from "moment";
 import createLogger from 'logging';
 
 const app = express();
-app.use(express.json);
+app.use(express.json());
 
 const NAMESPACE = 'Calendar';
 const logger = createLogger(`${NAMESPACE}`);
