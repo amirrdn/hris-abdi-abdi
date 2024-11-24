@@ -1,6 +1,7 @@
 import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { LeaveTypeModel } from "./leave_type.entity";
 import { ApprovalModel } from "./approval.entity";
+import { User } from "./user.entity";
 
 @Entity('leave_attendance')
 export class LeaveAttendanceModel extends BaseEntity{
@@ -40,4 +41,12 @@ export class LeaveAttendanceModel extends BaseEntity{
     @ManyToOne(() => LeaveTypeModel)
     @JoinColumn({ name: 'cuty_type'})
     cutytype!: LeaveTypeModel
+
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'user_id' })
+    user!: User;
+
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'assigned_to' })
+    assignedUser!: User;
 }

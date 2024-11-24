@@ -1,5 +1,6 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { LeaveAttendanceModel } from './leaveattendance.entity';
+import { User } from "./user.entity";
 
 @Entity('approval')
 export class ApprovalModel extends BaseEntity {
@@ -16,6 +17,9 @@ export class ApprovalModel extends BaseEntity {
     @Column({ type: 'varchar', length: 50 })
     approval_status!: string;
 
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'approved_by' }) // Foreign key linking to the User entity
+    approvedBy!: User;
     @Column()
     approved_by!: number;
 
@@ -30,4 +34,6 @@ export class ApprovalModel extends BaseEntity {
 
     @UpdateDateColumn()
     updated_at!: Date;
+
+   
 }

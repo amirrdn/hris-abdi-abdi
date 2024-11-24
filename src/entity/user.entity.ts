@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn, BaseEntity, JoinColumn, ManyToOne } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, BaseEntity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { Roles } from "./roles";
 import { Branchs } from "./brachEntity";
+import { ApprovalModel } from "./approval.entity";
 
 export type Enabled = "yes" | "no";
 
@@ -89,4 +90,7 @@ export class User extends BaseEntity{
 
     @Column({name: 'updated_at'})
     updated_at!: Date
+
+    @OneToMany(() => ApprovalModel, (approval) => approval.approvedBy)
+    approvals!: ApprovalModel[];
 }
